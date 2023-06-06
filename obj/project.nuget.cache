@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B+swlbIPfCNb/+WayTsiDfw2xU48L4+PAyI30uoJ0XofdP+ankbKGWaDMlx2W/UDhIos1M9w/lMC8tOG6s7ZTg==",
+  "dgSpecHash": "NWSYcU+MkygK88u+yr8t0y3bn3OG6RR5fAN7gdsYxegKkJkjQZjofqvLA6Gj8FZ9Yvz7JAqK47PtUS6bgStpkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\woker\\WorkerServiceSisges\\WorkerServiceSisges\\WorkerServiceSisges.csproj",
+  "projectFilePath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\OtrosSistemas\\WorkerSisges\\WorkerServiceSisges.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ricardo.sanchez\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ricardo.sanchez\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

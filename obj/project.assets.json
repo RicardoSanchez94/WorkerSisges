@@ -8225,11 +8225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\woker\\WorkerServiceSisges\\WorkerServiceSisges\\WorkerServiceSisges.csproj",
+      "projectUniqueName": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\OtrosSistemas\\WorkerSisges\\WorkerServiceSisges.csproj",
       "projectName": "WorkerServiceSisges",
-      "projectPath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\woker\\WorkerServiceSisges\\WorkerServiceSisges\\WorkerServiceSisges.csproj",
+      "projectPath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\OtrosSistemas\\WorkerSisges\\WorkerServiceSisges.csproj",
       "packagesPath": "C:\\Users\\ricardo.sanchez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\woker\\WorkerServiceSisges\\WorkerServiceSisges\\obj\\",
+      "outputPath": "C:\\Users\\ricardo.sanchez\\Documents\\proyecto fashions\\OtrosSistemas\\WorkerSisges\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ricardo.sanchez\\AppData\\Roaming\\NuGet\\NuGet.Config",
