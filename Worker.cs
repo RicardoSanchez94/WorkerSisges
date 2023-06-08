@@ -19,6 +19,7 @@ namespace WorkerServiceSisges
         private readonly ILogger<Worker> _logger;
         private DateTime _lastExecutionDate = DateTime.MinValue;
         private EnviodeCorreo Correo = new EnviodeCorreo();
+        private CancellationTokenSource _cancellationTokenSource;
 
 
 
@@ -26,6 +27,14 @@ namespace WorkerServiceSisges
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
+        }
+
+        public async Task StopAsnyc(CancellationToken cancellation)
+        {
+            _cancellationTokenSource = new CancellationTokenSource();
+            _logger.LogInformation("Se detuvo el Servicio a las 12");
+            _cancellationTokenSource?.Cancel();
+            await Task.CompletedTask;
         }
 
         //protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -59,7 +68,7 @@ namespace WorkerServiceSisges
         {
             var now = DateTime.Now;
             var nextSeven = new DateTime(now.Year, now.Month, now.Day, 7, 0, 0);
-            var nextEleven = new DateTime(now.Year, now.Month, now.Day, 11, 0, 0);
+            var nextEleven = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
 
 
             ResponseModel response = new ResponseModel();
@@ -91,9 +100,9 @@ namespace WorkerServiceSisges
             
                 try
                 {
-                    await IniciodeProceso();
+                    //await IniciodeProceso();
                     response.error = false;
-                    _logger.LogInformation("Se finalizo Correctamente el proceso de las 11");
+                    _logger.LogInformation("Se finalizo Correctamente el proceso de las 12");
                 }
                 catch (Exception ex)
                 {
@@ -103,24 +112,31 @@ namespace WorkerServiceSisges
                 }
                 finally
                 {
-                    _logger.LogInformation("Fin del ExecuteAsync ");
+                    _logger.LogInformation("Fin del ExecuteAsync");
 
-                    while (stoppingToken.IsCancellationRequested)
-                    {
-                        await Task.Delay(1000, stoppingToken);
-                    }
+                    await StopAsync(CancellationToken.None); // Detener el servicio sin utilizar el token de cancelación
+
+                    // Finalizar la aplicación
+                    await Task.Delay(2000); // Esperar un breve tiempo para asegurar que las tareas se completen
+                    _logger.LogInformation("Aplicación finalizada.");
+
+                    // Salir de la aplicación
+                    Environment.Exit(0);
                 }
 
             }
             else
             {
-                //nextEleven = nextEleven.AddDays(1);
-                //while (!stoppingToken.IsCancellationRequested)
-                //{
-                _logger.LogInformation("Fin del ExecuteAsync ");
-                await Task.Delay(100000000, stoppingToken);
-                 
-                //}
+                _logger.LogInformation("Fin del ExecuteAsync");
+
+                await StopAsync(CancellationToken.None); // Detener el servicio sin utilizar el token de cancelación
+
+                // Finalizar la aplicación
+                await Task.Delay(2000); // Esperar un breve tiempo para asegurar que las tareas se completen
+                _logger.LogInformation("Aplicación finalizada.");
+
+                // Salir de la aplicación
+                Environment.Exit(0);
             }
 
 
@@ -151,7 +167,7 @@ namespace WorkerServiceSisges
                         lstresponse.Add(response);
                     }
 
-                    if (DateTime.Now.Hour == 11)
+                    if (DateTime.Now.Hour == 12)
                     {
                         response = await EndpointAlertas(response.Token);
                         lstresponse.Add(response);
